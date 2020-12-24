@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.LoginFragment">
+
+    <ImageView
+        android:id="@+id/login_fragment_logo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@mipmap/ic_launcher"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/login_fragment_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/hesabagirisyap"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_fragment_logo" />
+
+    <EditText
+        android:id="@+id/login_fragment_emailaddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="s@g.c"
+        android:background="@drawable/edittext_elactical_shape"
+        android:hint="@string/hintemail"
+        android:inputType="textEmailAddress"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:paddingHorizontal="100dp"
+        android:paddingVertical="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_fragment_textview"
+        tools:ignore="Autofill" />
+
+    <EditText
+        android:id="@+id/login_fragment_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/edittext_elactical_shape"
+        android:hint="@string/hintpassword"
+        android:text="123"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:paddingHorizontal="150dp"
+        android:paddingVertical="20dp"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_fragment_emailaddress"
+        tools:ignore="Autofill" />
+
+    <TextView
+        android:id="@+id/login_fragment_forgetpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="200dp"
+        android:textSize="25sp"
+        android:text="@string/sifremiunuttum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_fragment_password" />
+
+    <Button
+        android:id="@+id/login_fragment_login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_elactical_shape"
+        android:text="@string/girisyap"
+        android:paddingHorizontal="100dp"
+        android:textSize="30sp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_fragment_forgetpassword" />
+    <TextView
+        android:id="@+id/login_fragment_textview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/hesabinmiyok"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_fragment_login_button" />
+
+    <TextView
+        android:id="@+id/login_fragment_register_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/register"
+        android:textSize="20sp"
+        android:layout_marginStart="3dp"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/login_fragment_textview2"
+        app:layout_constraintTop_toBottomOf="@id/login_fragment_login_button" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
