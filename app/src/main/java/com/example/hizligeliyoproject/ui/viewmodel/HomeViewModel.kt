@@ -6,17 +6,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hizligeliyoproject.network.Repository
-import com.example.hizligeliyoproject.network.helper.ICatagoryFilter
 import com.example.hizligeliyoproject.network.model.Product
 import kotlinx.coroutines.launch
 
 
-class HomeViewModel : ViewModel(), ICatagoryFilter {
+class HomeViewModel : ViewModel() {
     private var repository:Repository = Repository()
     private var _productsLiveData = MutableLiveData<List<Product>>()
     private var _fullData = MutableLiveData<List<Product>>()
     val productsLiveData : LiveData<List<Product>>
         get() = _productsLiveData
+
 
     init {
         viewModelScope.launch {
@@ -34,13 +34,8 @@ class HomeViewModel : ViewModel(), ICatagoryFilter {
         _productsLiveData=repository.searchGetProduct(search, products)
     }
 
-    override fun onCatagoryFilter(categories: ArrayList<String>) {
-        val products = _fullData.value.orEmpty()
-        _productsLiveData = repository.getCategoryProductList(categories, products)
+    fun setProductforCategoryFilter(categories: ArrayList<String>){
+        val product = _fullData.value.orEmpty()
+        _productsLiveData = repository.getCategoryProductList(categories, product)
     }
-
-    fun newInstance() : ICatagoryFilter{
-        return this
-    }
-
 }

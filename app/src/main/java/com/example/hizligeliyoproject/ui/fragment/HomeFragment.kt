@@ -1,5 +1,6 @@
 package com.example.hizligeliyoproject.ui.fragment
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -62,7 +63,7 @@ class HomeFragment: Fragment() {
 
         binding.buttonBarLayout.filtreButton.setOnClickListener {
             val intent = Intent(context, CategoriesActivity::class.java)
-            startActivityForResult(intent, 0)
+            startActivityForResult(intent, 1)
         }
     }
 
@@ -72,6 +73,15 @@ class HomeFragment: Fragment() {
       binding.recyclerviewFragmentHome.adapter = adapter
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == Activity.RESULT_OK){
+            data?.getStringArrayListExtra("categories")?.let {
+                Log.e("onActivityResult", it.toString())
+                homeViewModel.setProductforCategoryFilter(it) }
+
+        }
+    }
     override fun onResume() {
         super.onResume()
         onBindViewModel()

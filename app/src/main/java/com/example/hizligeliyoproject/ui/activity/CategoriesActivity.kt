@@ -1,10 +1,10 @@
 package com.example.hizligeliyoproject.ui.activity
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hizligeliyoproject.databinding.ActivityCategoriesBinding
-import com.example.hizligeliyoproject.network.helper.ICatagoryFilter
-import com.example.hizligeliyoproject.ui.viewmodel.HomeViewModel
 
 class CategoriesActivity : AppCompatActivity() {
     private val catagories : ArrayList<String> = ArrayList()
@@ -14,8 +14,6 @@ class CategoriesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCategoriesBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val listener : ICatagoryFilter = HomeViewModel().newInstance()
 
         binding.electronic.setOnClickListener {
             filtreControl("electronics")
@@ -30,13 +28,14 @@ class CategoriesActivity : AppCompatActivity() {
             filtreControl("women clothing")
         }
         binding.catagoryFilterButton.setOnClickListener {
-            listener.onCatagoryFilter(catagories)
+            val resultIntent = Intent()
+            resultIntent.putStringArrayListExtra("categories", catagories)
+            setResult(Activity.RESULT_OK, resultIntent)
             finish()
         }
         binding.toolbar.setNavigationOnClickListener {
             finish()
         }
-
     }
 
     private fun filtreControl(category : String){
